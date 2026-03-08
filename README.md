@@ -1,15 +1,15 @@
-# Xiaohongshu Tool for Obsidian
+# Xiaohongshu Daoru for Obsidian
 
 **Version**: 1.2.0  
 **Author**: [Your Name]  
-**Repository**: [https://github.com/your-username/xiaohongshu-tool](https://github.com/your-username/xiaohongshu-tool)  
+**Repository**: [https://github.com/your-username/xiaohongshu-daoru](https://github.com/your-username/xiaohongshu-daoru)  
 **License**: MIT
 
 **[中文版本](#chinese-readme)** (Scroll to the Chinese version)
 
 ## Overview
 
-**Xiaohongshu Tool** is an enhanced Obsidian plugin that allows you to seamlessly import notes from Xiaohongshu (小红书) into your Obsidian vault. This tool is an optimized upgrade of the original importer, featuring **Live Photo support**, **improved tag formatting**, and **robust video extraction**.
+**Xiaohongshu Daoru** (formerly Xiaohongshu Importer) is an enhanced Obsidian plugin that allows you to seamlessly import notes from Xiaohongshu (小红书) into your Obsidian vault. This tool is an optimized upgrade of the original importer, featuring **Live Photo support**, **improved tag formatting**, and **robust video extraction**.
 
 With this plugin, you can extract note content, images, videos (including Live Photos), and tags, and organize them into categorized Markdown files.
 
@@ -31,9 +31,9 @@ With this plugin, you can extract note content, images, videos (including Live P
 ### Manual Installation
 
 1. Download the latest release `main.js`, `manifest.json`, and `styles.css`.
-2. Create a folder named `xiaohongshu-tool` in your vault's plugins directory: `<vault>/.obsidian/plugins/xiaohongshu-tool/`.
+2. Create a folder named `xiaohongshu-daoru` in your vault's plugins directory: `<vault>/.obsidian/plugins/xiaohongshu-daoru/`.
 3. Copy the files into this folder.
-4. Enable **Xiaohongshu Tool** in **Settings > Community Plugins**.
+4. Enable **Xiaohongshu Daoru** in **Settings > Community Plugins**.
 
 ## Usage
 
@@ -44,23 +44,23 @@ With this plugin, you can extract note content, images, videos (including Live P
 
 ## Configuration
 
-Go to **Settings > Community Plugins > Xiaohongshu Tool** to:
+Go to **Settings > Community Plugins > Xiaohongshu Daoru** to:
 - Set default download folder.
 - Toggle default media download setting.
 - Manage categories.
 
 ---
 
-# 小红书工具 (Xiaohongshu Tool) for Obsidian <a id="chinese-readme"></a>
+# 小红书导入 (Xiaohongshu Daoru) for Obsidian <a id="chinese-readme"></a>
 
 **版本**：1.2.0  
 **作者**：[Your Name]  
-**代码仓库**：[https://github.com/your-username/xiaohongshu-tool](https://github.com/your-username/xiaohongshu-tool)  
+**代码仓库**：[https://github.com/your-username/xiaohongshu-daoru](https://github.com/your-username/xiaohongshu-daoru)  
 **许可证**：MIT
 
 ## 概述
 
-**Xiaohongshu Tool** 是一个小红书导入插件的**增强优化版**。它不仅支持将小红书笔记导入 Obsidian，还特别修复了格式问题并新增了对 **Live Photo（实况照片）** 的支持。
+**Xiaohongshu Daoru** 是一个小红书导入插件的**增强优化版**。它不仅支持将小红书笔记导入 Obsidian，还特别修复了格式问题并新增了对 **Live Photo（实况照片）** 的支持。
 
 ## v1.2.0 新增功能
 
@@ -80,9 +80,9 @@ Go to **Settings > Community Plugins > Xiaohongshu Tool** to:
 ### 手动安装
 
 1. 下载最新的 `main.js`、`manifest.json` 和 `styles.css` 文件。
-2. 在您的 Obsidian 库插件目录中创建一个名为 `xiaohongshu-tool` 的文件夹：`<vault>/.obsidian/plugins/xiaohongshu-tool/`。
+2. 在您的 Obsidian 库插件目录中创建一个名为 `xiaohongshu-daoru` 的文件夹：`<vault>/.obsidian/plugins/xiaohongshu-daoru/`。
 3. 将文件复制到该文件夹中。
-4. 在 **设置 > 社区插件** 中启用 **Xiaohongshu Tool**。
+4. 在 **设置 > 社区插件** 中启用 **Xiaohongshu Daoru**。
 
 ## 使用方法
 

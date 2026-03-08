@@ -1,10 +1,10 @@
 {
-	"id": "xiaohongshu-tool",
-	"name": "Xiaohongshu Tool",
+	"id": "xiaohongshu-daoru",
+	"name": "Xiaohongshu Daoru",
 	"version": "1.2.0",
 	"minAppVersion": "0.15.0",
 	"description": "Import Xiaohongshu (小红书) notes with Live Photo support, video extraction, and enhanced tag handling.",
 	"author": "Your Name",
-	"authorUrl": "https://github.com/your-username/xiaohongshu-tool",
+	"authorUrl": "https://github.com/your-username/xiaohongshu-daoru",
 	"isDesktopOnly": false
 }

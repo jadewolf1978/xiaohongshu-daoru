@@ -1,5 +1,5 @@
 {
-	"name": "xiaohongshu-tool",
+	"name": "xiaohongshu-daoru",
 	"version": "1.2.0",
 	"description": "Import Xiaohongshu (小红书) notes with Live Photo support, video extraction, and enhanced tag handling.",
 	"main": "main.js",
@@ -13,7 +13,8 @@
 		"xiaohongshu",
 		"importer",
 		"live-photo",
-		"plugin"
+		"plugin",
+		"xiaohongshu-daoru"
 	],
 	"author": "Your Name",
 	"license": "MIT",
