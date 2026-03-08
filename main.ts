@@ -127,20 +127,23 @@ export default class XHSImporterPlugin extends Plugin {
 			const title = this.extractTitle(html);
 			const videoUrl = this.extractVideoUrl(html);
 			const images = this.extractImages(html);
+			const livePhotos = this.extractLivePhotos(html);
 			const content = this.extractContent(html);
 			const isVideo = this.isVideoNote(html);
+			const tags = this.extractTags(content);
 
 			// Build frontmatter and initial Markdown
-			const noteDate = new Date().toISOString().split("T")[0];
-			const importedAt = new Date().toLocaleString();
+			const importedAt = new Date().toISOString().split('T')[0];
 			let markdown = `---
 title: ${title}
 source: ${url}
-date: ${noteDate}
-Imported At: ${importedAt}
+date: "[[日记/${importedAt}|${importedAt} 🔗]]"
 category: ${category}
+tags: [${tags.join(", ")}]
 ---
-# ${title}\n\n`;
+# ${title}
+
+`;
 
 			// Define folder structure
 			const baseFolder = this.settings.defaultFolder || "";
@@ -216,7 +219,22 @@ category: ${category}
 					markdown += `![Cover Image](${downloadedImages[0]})\n\n`;
 				}
 
-				const cleanContent = content.replace(/#[^#\s]*(?:\s+#[^#\s]*)*\s*/g, "").trim();
+				// Handle Live Photos
+				let downloadedLivePhotos: string[] = [];
+				if (livePhotos.length > 0) {
+					if (downloadMedia) {
+						for (let i = 0; i < livePhotos.length; i++) {
+							const videoFilename = `${mediaSafeTitle}-live-${i}-${Date.now()}.mp4`;
+							const downloadedFilename = await this.downloadMediaFile(livePhotos[i], mediaFolder, videoFilename);
+							const finalVideoUrl = downloadedFilename.startsWith("http") ? downloadedFilename : `../media/${downloadedFilename}`;
+							downloadedLivePhotos.push(finalVideoUrl);
+						}
+					} else {
+						downloadedLivePhotos = livePhotos;
+					}
+				}
+
+				const cleanContent = content.replace(/#\S+/g, "").trim();
 				markdown += `${cleanContent.split("\n").join("\n")}\n\n`;
 
 				const tags = this.extractTags(content);
@@ -230,6 +248,11 @@ category: ${category}
 					// Add all images (including the first one, which is already used as the cover)
 					const imageMarkdown = downloadedImages.map((url) => `![Image](${url})`).join("\n");
 					markdown += `${imageMarkdown}\n`;
+				}
+
+				if (livePhotos.length > 0) {
+					const livePhotoMarkdown = downloadedLivePhotos.map((url) => `<video controls src="${url}" width="100%"></video>`).join("\n\n");
+					markdown += `\n${livePhotoMarkdown}\n`;
 				}
 			}
 
@@ -270,6 +293,57 @@ category: ${category}
 				.filter((url: string) => url && url.startsWith("http"));
 		} catch (e) {
 			console.log(`Failed to parse images: ${e.message}`);
+			return [];
+		}
+	}
+
+	// Extract Live Photo URLs from note data
+	extractLivePhotos(html: string): string[] {
+		const stateMatch = html.match(/window\.__INITIAL_STATE__=(.*?)<\/script>/s);
+		if (!stateMatch) return [];
+
+		try {
+			const jsonStr = stateMatch[1].trim();
+			const cleanedJson = jsonStr.replace(/undefined/g, "null");
+			const state = JSON.parse(cleanedJson);
+			const noteId = Object.keys(state.note.noteDetailMap)[0];
+			const imageList = state.note.noteDetailMap[noteId].note.imageList || [];
+
+			// Helper to find stream recursively with priority on known keys
+			const findStream = (obj: any, depth = 0): any => {
+				if (!obj || typeof obj !== 'object' || depth > 5) return null;
+
+				// Direct hit
+				if (obj.stream && (obj.stream.h264 || obj.stream.h265)) {
+					return obj.stream;
+				}
+
+				// Check known properties for nesting
+				const candidates = [obj.livePhoto, obj.live_photo, obj.video, obj.media];
+				for (const candidate of candidates) {
+					const result = findStream(candidate, depth + 1);
+					if (result) return result;
+				}
+				
+				return null;
+			};
+
+			return imageList
+				.map((img: any) => {
+					const stream = findStream(img);
+					if (stream) {
+						if (stream.h264 && stream.h264.length > 0 && stream.h264[0].masterUrl) {
+							return stream.h264[0].masterUrl;
+						}
+						if (stream.h265 && stream.h265.length > 0 && stream.h265[0].masterUrl) {
+							return stream.h265[0].masterUrl;
+						}
+					}
+					return null;
+				})
+				.filter((url: string) => url && url.startsWith("http"));
+		} catch (e) {
+			console.log(`Failed to parse live photos: ${e.message}`);
 			return [];
 		}
 	}
@@ -353,7 +427,7 @@ category: ${category}
 	// Extract tags from content
 	extractTags(content: string): string[] {
 		const tagMatches = content.match(/#\S+/g) || [];
-		return tagMatches.map((tag) => tag.replace("#", "").trim());
+		return tagMatches.map((tag) => tag.replace(/#/g, "").trim());
 	}
 
 	// Plugin lifecycle: Cleanup on unload (currently empty)
