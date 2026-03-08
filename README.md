@@ -1,8 +1,8 @@
 # Xiaohongshu Daoru for Obsidian
 
 **Version**: 1.2.0  
-**Author**: [Your Name]  
-**Repository**: [https://github.com/your-username/xiaohongshu-daoru](https://github.com/your-username/xiaohongshu-daoru)  
+**Author**: [jadewolf1978](https://github.com/jadewolf1978)  
+**Repository**: [https://github.com/jadewolf1978/xiaohongshu-daoru](https://github.com/jadewolf1978/xiaohongshu-daoru)  
 **License**: MIT
 
 **[中文版本](#chinese-readme)** (Scroll to the Chinese version)
@@ -54,8 +54,8 @@ Go to **Settings > Community Plugins > Xiaohongshu Daoru** to:
 # 小红书导入 (Xiaohongshu Daoru) for Obsidian <a id="chinese-readme"></a>
 
 **版本**：1.2.0  
-**作者**：[Your Name]  
-**代码仓库**：[https://github.com/your-username/xiaohongshu-daoru](https://github.com/your-username/xiaohongshu-daoru)  
+**作者**：[jadewolf1978](https://github.com/jadewolf1978)  
+**代码仓库**：[https://github.com/jadewolf1978/xiaohongshu-daoru](https://github.com/jadewolf1978/xiaohongshu-daoru)  
 **许可证**：MIT
 
 ## 概述

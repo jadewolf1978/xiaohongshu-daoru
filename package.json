@@ -16,7 +16,7 @@
 		"plugin",
 		"xiaohongshu-daoru"
 	],
-	"author": "Your Name",
+	"author": "jadewolf1978",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^18.0.0",
