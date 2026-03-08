@@ -34,14 +34,22 @@ With this plugin, you can extract note content, images, videos (including Live P
 1. Download the latest release `main.js`, `manifest.json`, `styles.css`, and `data.json`.
 2. Create a folder named `xiaohongshu-daoru` in your vault's plugins directory: `<vault>/.obsidian/plugins/xiaohongshu-daoru/`.
 3. Copy the files into this folder.
+
+![Installation Files](images/install-files.png)
+
 4. Enable **Xiaohongshu Daoru** in **Settings > Community Plugins**.
 
 ## Usage
 
 1. **Trigger Import**: Click the ribbon icon or use the command "Import Xiaohongshu note".
 2. **Paste Link**: Paste the share text/URL from Xiaohongshu.
+
+![Import Modal](images/usage-modal.png)
+
 3. **Select Options**: Choose category and whether to download media.
 4. **Done**: The note is created with all content and media.
+
+![Note Preview](images/note-example.png)
 
 ## Configuration
 
@@ -84,14 +92,22 @@ Go to **Settings > Community Plugins > Xiaohongshu Daoru** to:
 1. 下载最新的 `main.js`、`manifest.json` 、 `styles.css` 、`data.json` 文件。
 2. 在您的 Obsidian 库插件目录中创建一个名为 `xiaohongshu-daoru` 的文件夹：`<vault>/.obsidian/plugins/xiaohongshu-daoru/`。
 3. 将文件复制到该文件夹中。
+
+![安装文件](images/install-files.png)
+
 4. 在 **设置 > 社区插件** 中启用 **Xiaohongshu Daoru**。
 
 ## 使用方法
 
 1. **开始导入**：点击侧边栏图标或使用命令“Import Xiaohongshu note”。
 2. **粘贴链接**：输入小红书的分享文本或链接。
+
+![导入弹窗](images/usage-modal.png)
+
 3. **选择选项**：选择分类和是否下载媒体。
 4. **完成**：笔记将自动生成并打开。
+
+![笔记预览](images/note-example.png)
 
 ## 开发与贡献
 
