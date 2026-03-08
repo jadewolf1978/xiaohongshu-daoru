@@ -16,12 +16,13 @@ With this plugin, you can extract note content, images, videos (including Live P
 ## New Features in v1.2.0
 
 - **Live Photo Support**: Automatically detects and extracts Live Photos as video files, preserving the dynamic content of your notes.
-- **Enhanced Tag Processing**: Fixes issues with deletion lines and trailing `#` characters in tags, ensuring clean and usable Obsidian tags.
+- **Auto Import Tags Support**: Fixes issues with deletion lines and trailing `#` characters when auto-importing tags, ensuring clean and usable Obsidian tags.
 - **Improved Video Extraction**: Uses a recursive search algorithm to find video streams in complex JSON structures, ensuring higher success rates for video notes.
 
 ## Key Features
 
 - **Import Xiaohongshu Notes**: Import via share link or text (supports `discovery/item`, `explore`, and short links).
+- **Auto Import Tags**: Automatically extracts tags from note content and generates Obsidian-formatted tags.
 - **Media Download**: Option to download images, videos, and Live Photos locally to your vault.
 - **Category Management**: Organize notes into custom categories (e.g., "Travel", "Food").
 - **Smart Formatting**: auto-cleans content and formats metadata in YAML frontmatter.
@@ -30,7 +31,7 @@ With this plugin, you can extract note content, images, videos (including Live P
 
 ### Manual Installation
 
-1. Download the latest release `main.js`, `manifest.json`, and `styles.css`.
+1. Download the latest release `main.js`, `manifest.json`, `styles.css`, and `data.json`.
 2. Create a folder named `xiaohongshu-daoru` in your vault's plugins directory: `<vault>/.obsidian/plugins/xiaohongshu-daoru/`.
 3. Copy the files into this folder.
 4. Enable **Xiaohongshu Daoru** in **Settings > Community Plugins**.
@@ -65,12 +66,13 @@ Go to **Settings > Community Plugins > Xiaohongshu Daoru** to:
 ## v1.2.0 新增功能
 
 - **支持 Live Photo**：自动检测并提取实况照片为视频文件，完整保留动态画面。
-- **标签格式修复**：修复了导入标签时出现的删除线和尾部 `#` 号问题，生成干净的 Obsidian 标签。
+- **支持自动导入标签**：修复了自动导入标签时出现的删除线和尾部 `#` 号问题，生成干净的 Obsidian 标签。
 - **增强视频提取**：采用递归查找算法，能从复杂的数据结构中精准找到视频流地址，大幅提高视频笔记的导入成功率。
 
 ## 主要功能
 
 - **一键导入**：支持通过分享链接或文本导入笔记（支持短链、发现页链接等）。
+- **自动导入标签**：自动从笔记内容中提取标签，并生成 Obsidian 格式的标签。
 - **媒体下载**：可选择将图片、视频和 Live Photo 下载到本地。
 - **分类管理**：自定义笔记分类（如“美食”、“旅行”）。
 - **自动格式化**：自动清理正文干扰字符，生成规范的 YAML 元数据。
@@ -79,7 +81,7 @@ Go to **Settings > Community Plugins > Xiaohongshu Daoru** to:
 
 ### 手动安装
 
-1. 下载最新的 `main.js`、`manifest.json` 和 `styles.css` 文件。
+1. 下载最新的 `main.js`、`manifest.json` 、 `styles.css` 、`data.json` 文件。
 2. 在您的 Obsidian 库插件目录中创建一个名为 `xiaohongshu-daoru` 的文件夹：`<vault>/.obsidian/plugins/xiaohongshu-daoru/`。
 3. 将文件复制到该文件夹中。
 4. 在 **设置 > 社区插件** 中启用 **Xiaohongshu Daoru**。
